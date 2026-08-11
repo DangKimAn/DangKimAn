@@ -15,4 +15,8 @@ Hi, I'm a Data Engineer in progress from PTITHCM 👋<br><br>I don't just write 
 ---
 [![](https://visitcount.itsvg.in/api?id=DangKimAn&icon=0&color=0)](https://visitcount.itsvg.in)
 
+# 📈 Contribution Graph
+
+[![DangKimAn's GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=DangKimAn&theme=react-dark&hide_border=true&area=true)](https://github.com/DangKimAn)
+
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
