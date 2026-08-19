@@ -31,7 +31,7 @@ Hi, I'm a Data Engineer in progress from PTITHCM 👋<br><br>I don't just write 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" >
   <tr>
     <td width="58%" align="center" valign="top" >
-      <img src="https://github-readme-streak-stats.herokuapp.com/?user=DangKimAn&theme=dark&hide_border=true&v=1" alt="GitHub Streak" width="100%" />
+      <img src="https://github-readme-streak-stats.herokuapp.com/?user=DangKimAn&theme=dark&hide_border=true&v=2" alt="GitHub Streak" width="100%" />
     </td>
     <td width="43%" align="center" valign="top">
       <img src="https://github-stats-extended.vercel.app/api/top-langs/?username=DangKimAn&hide_border=false&include_all_commits=true&count_private=false&layout=compact&theme=dark" alt="Top Languages" width="100%" />
