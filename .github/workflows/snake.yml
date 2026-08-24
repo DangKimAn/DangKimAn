@@ -14,16 +14,26 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Generate custom heatmap
+      - name: Extract Raw Heatmap (No Snake)
         uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
+          # Mức 0 đổi thành #0d0d0d (đen sâu), các mức sau giữ nguyên dải màu xanh
           outputs: |
-            dist/github-heatmap-leetcode.svg?color_snake=transparent&color_dots=#2b2b2b,#153916,#1c5f22,#269230,#3ddc4d
+            dist/github-heatmap-leetcode.svg?color_snake=transparent&color_dots=#0d0d0d,#0e4429,#006d32,#26a641,#39d353
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
-      - name: Push to output branch
+      - name: Transform Data (Crop Legend & Hide Text)
+        run: |
+          # Cắt bớt chiều cao để ẩn thanh chú thích
+          sed -i -E 's/viewBox="0 0 ([0-9]+) [0-9]+"/viewBox="0 0 \1 125"/' dist/github-heatmap-leetcode.svg
+          sed -i -E 's/height="[0-9]+"/height="125"/' dist/github-heatmap-leetcode.svg
+          
+          # Ẩn các chữ (Mon, Wed, Fri) bên trái
+          sed -i 's|</style>|text { display: none !important; }</style>|' dist/github-heatmap-leetcode.svg
+          
+      - name: Load to Output Branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
