@@ -1,11 +1,8 @@
-name: Generate Snake Contribution Heatmap
+name: Generate GitHub Contribution Heatmap
 
 on:
-  # Chạy tự động vào nửa đêm và giữa trưa mỗi ngày
   schedule:
     - cron: "0 0,12 * * *" 
-  
-  # Cho phép kích hoạt pipeline bằng tay bất cứ lúc nào
   workflow_dispatch:
 
 jobs:
@@ -14,22 +11,18 @@ jobs:
     timeout-minutes: 5
     
     steps:
-      # Kéo mã nguồn về máy ảo
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Tạo ảnh SVG Heatmap (bao gồm bản dark mode)
-      - name: Generate github-contribution-grid-snake.svg
+      - name: Generate custom heatmap
         uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+            dist/github-heatmap-leetcode.svg?color_snake=transparent&color_dots=#2b2b2b,#153916,#1c5f22,#269230,#3ddc4d
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
-      # Đẩy file ảnh vừa tạo sang một branch phụ tên là 'output' để không làm rác branch chính
       - name: Push to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
